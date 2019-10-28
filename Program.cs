@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace TicketRegistery
 {
@@ -66,7 +67,7 @@ namespace TicketRegistery
             do
               {
                    
-                      string name = Util.AskForString("Name: ");
+                      string name = Util.AskForString("Name: "); 
                       int age = Util.AskForInt("Age: ");
                       Person person = new Person(name, age);
                      TicketPrice = person.getTicketPrice;
@@ -108,7 +109,8 @@ namespace TicketRegistery
         static void printThirdStringOfSentence()
         {
             string InputString = Util.AskForString(" Type your sentence here: ");
-            string[] words = InputString.Split(' ');
+            string cleanedString = Regex.Replace(InputString, @"\s+", " ").Trim();
+            string[] words = cleanedString.Split(' ');
             Console.WriteLine($"The input string is {InputString}");
 
             if (words.Length >= 2)
