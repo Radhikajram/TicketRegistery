@@ -60,11 +60,12 @@ namespace TicketRegistery
         }
             static void BookTicket()
             {
-            bool ContinueFlag = true;
+                 bool ContinueFlag = true;
+            Ticketdetails ticketdetails = new Ticketdetails();
             // Get Name and Age from Console.
             do
-                  {
-                    Ticketdetails ticketdetails = new Ticketdetails();
+              {
+                   
                       string name = Util.AskForString("Name: ");
                       int age = Util.AskForInt("Age: ");
                       Person person = new Person(name, age);
